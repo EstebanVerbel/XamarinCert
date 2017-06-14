@@ -7,7 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTunes.iOS", "MyTunes.iOS\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTunes.Droid", "MyTunes.Droid\MyTunes.Droid.csproj", "{CC9983A8-412B-434B-A38F-84F7F754D6D2}"
 EndProject
+Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MyTunes.Shared", "MyTunes.Shared\MyTunes.Shared.shproj", "{29DA42CE-5CE5-43FC-8CE4-EEA1B5B07074}"
+EndProject
 Global
+	GlobalSection(SharedMSBuildProjectFiles) = preSolution
+		MyTunes.Shared\MyTunes.Shared.projitems*{29da42ce-5ce5-43fc-8ce4-eea1b5b07074}*SharedItemsImports = 13
+	EndGlobalSection
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Ad-Hoc|Any CPU = Ad-Hoc|Any CPU
 		Ad-Hoc|ARM = Ad-Hoc|ARM
