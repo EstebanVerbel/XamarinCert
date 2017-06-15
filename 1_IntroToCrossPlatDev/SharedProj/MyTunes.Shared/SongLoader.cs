@@ -18,10 +18,13 @@ namespace MyTunes
 			}
 		}
 
+        /// <summary>
+        /// This Methos uses conditional compilation for each platform
+        /// </summary>
+        /// <returns></returns>
 		private static Stream OpenData()
 		{
             // TODO: add code to open file here.
-
 #if __ANDROID__
             return Android.App.Application.Context.Assets.Open(FILE_NAME);
 #elif __IOS__
@@ -29,8 +32,8 @@ namespace MyTunes
 #else
             return null;
 #endif
-
         }
+        
 	}
 }
 
