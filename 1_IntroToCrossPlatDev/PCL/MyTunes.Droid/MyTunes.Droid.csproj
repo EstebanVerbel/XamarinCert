@@ -51,6 +51,7 @@
     <Compile Include="Resources\Resource.designer.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ListAdapter.cs" />
+    <Compile Include="StreamLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\songs.json" />
