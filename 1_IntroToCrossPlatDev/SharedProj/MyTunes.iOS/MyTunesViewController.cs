@@ -1,3 +1,4 @@
+using System.Linq;
 using UIKit;
 
 namespace MyTunes
@@ -13,13 +14,23 @@ namespace MyTunes
 			}
 		}
 
-		public override void ViewDidLoad()
+		public async override void ViewDidLoad()
 		{
 			base.ViewDidLoad();
 
-			TableView.Source = new ViewControllerSource<string>(TableView) {
-				DataSource = new string[] { "One", "Two", "Three" },
-			};
+            //TableView.Source = new ViewControllerSource<string>(TableView) {
+            //	DataSource = new string[] { "One", "Two", "Three" },
+            //};
+
+            var data = await SongLoader.Load();
+
+            TableView.Source = new ViewControllerSource<Song>(TableView)
+            {
+                DataSource = data.ToList(),
+                TextProc = s => s.Name,
+                DetailTextProc = s => s.Artist + "-" + s.Album
+            };
+
 		}
 	}
 
