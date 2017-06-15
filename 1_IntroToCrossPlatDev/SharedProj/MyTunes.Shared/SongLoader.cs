@@ -20,8 +20,13 @@ namespace MyTunes
 
 		private static Stream OpenData()
 		{
-			// TODO: add code to open file here.
-			return null;
+            // TODO: add code to open file here.
+            Stream songsStream = null;
+#if __ANDROID__
+            songsStream = Android.App.Application.Context.Assets.Open("songs.json"); //Assets.Open("my_asset.txt");
+#endif
+
+            return songsStream;
 		}
 	}
 }
