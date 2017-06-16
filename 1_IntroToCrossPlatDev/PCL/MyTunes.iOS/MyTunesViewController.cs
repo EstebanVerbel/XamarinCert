@@ -18,6 +18,9 @@ namespace MyTunes
 		{
 			base.ViewDidLoad();
 
+            // set loader property
+            SongLoader.Loader = new StreamLoader();
+
 			// Load the data
             var data = await SongLoader.Load();
 

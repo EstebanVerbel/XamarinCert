@@ -11,7 +11,10 @@ namespace MyTunes
 		{
 			base.OnCreate(bundle);
 
-			var data = await SongLoader.Load();
+            // set the loader property before calling load song
+            SongLoader.Loader = new StreamLoader(this);
+
+            var data = await SongLoader.Load();
 
 			ListAdapter = new ListAdapter<Song>() {
 				DataSource = data.ToList(),
