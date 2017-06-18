@@ -58,18 +58,7 @@ namespace Phoneword
             translateButton.Clicked += OnTranslate;
             callButton.Clicked += OnCall;
         }
-
-        private async void OnCall(object sender, EventArgs e)
-        {
-            bool isDialNumber = await DisplayAlert("Dial a Number", $"Would you like to call {translatedNumber}", "Yes", "No");
-
-            if (isDialNumber)
-            {
-
-            }
-            
-        }
-
+        
         private void OnTranslate(object sender, EventArgs e)
         {
             string enteredPhoneNumber = phoneNumberText.Text;
@@ -87,8 +76,23 @@ namespace Phoneword
                 // could not do translation
                 callButton.IsEnabled = false;
                 callButton.Text = "Call";
-            }
-            
+            }    
         }
+
+        private async void OnCall(object sender, EventArgs e)
+        {
+            bool isDialNumber = await DisplayAlert("Dial a Number", $"Would you like to call {translatedNumber}", "Yes", "No");
+
+            if (isDialNumber)
+            {
+                var dialer = DependencyService.Get<IDialer>();
+
+                if (dialer != null)
+                    await dialer.DialAsync(translatedNumber);
+                else
+                    await DisplayAlert("Error", "Unable to find a registered implementation of IDialer", "OK");
+            }
+        }
+
     }
 }
