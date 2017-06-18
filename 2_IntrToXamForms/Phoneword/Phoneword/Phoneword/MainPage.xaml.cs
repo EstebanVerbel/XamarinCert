@@ -13,6 +13,8 @@ namespace Phoneword
         Button translateButton;
         Button callButton;
 
+        string translatedNumber;
+
         public MainPage()
         {
             InitializeComponent();
@@ -52,6 +54,29 @@ namespace Phoneword
 
             this.Content = panel;
 
+
+            translateButton.Clicked += OnTranslate;
+        }
+
+        private void OnTranslate(object sender, EventArgs e)
+        {
+            string enteredPhoneNumber = phoneNumberText.Text;
+
+            translatedNumber = PhonewordTranslator.ToNumber(enteredPhoneNumber);
+
+            if (!string.IsNullOrEmpty(translatedNumber))
+            {
+                // good
+                callButton.IsEnabled = true;
+                callButton.Text = $"Call {translatedNumber}";
+            }
+            else
+            {
+                // could not do translation
+                callButton.IsEnabled = false;
+                callButton.Text = "Call";
+            }
+            
         }
     }
 }
