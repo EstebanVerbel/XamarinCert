@@ -54,8 +54,20 @@ namespace Phoneword
 
             this.Content = panel;
 
-
+            // subscribe click event handlers
             translateButton.Clicked += OnTranslate;
+            callButton.Clicked += OnCall;
+        }
+
+        private async void OnCall(object sender, EventArgs e)
+        {
+            bool isDialNumber = await DisplayAlert("Dial a Number", $"Would you like to call {translatedNumber}", "Yes", "No");
+
+            if (isDialNumber)
+            {
+
+            }
+            
         }
 
         private void OnTranslate(object sender, EventArgs e)
