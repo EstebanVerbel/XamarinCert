@@ -19,7 +19,8 @@ namespace Calculator
         
         public MainPage()
         {
-            InitializeComponent();    
+            InitializeComponent();
+            OnClear(this, null);
         }
 
         private void OnSelectNumber(object sender, EventArgs e)
