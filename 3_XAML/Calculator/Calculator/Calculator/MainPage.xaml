@@ -21,7 +21,7 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
 
-            <Label FontAttributes="Bold" FontSize="48" BackgroundColor="Black" Text="0"
+            <Label x:Name="resultText"  FontAttributes="Bold" FontSize="48" BackgroundColor="Black" Text="0"
                     TextColor="White" HorizontalTextAlignment="End" VerticalTextAlignment="Center"
                     LineBreakMode="NoWrap" Grid.ColumnSpan="4" />
 
