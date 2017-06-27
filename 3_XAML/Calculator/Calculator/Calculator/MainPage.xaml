@@ -3,6 +3,13 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Calculator.MainPage"
              xmlns:local="clr-namespace:Calculator">
+    
+    <ContentPage.Padding>
+        <OnPlatform x:TypeArguments="Thickness">
+            <OnPlatform.iOS>0,20,0,0</OnPlatform.iOS>
+        </OnPlatform>
+    </ContentPage.Padding>    
+    
     <ContentPage.Content>
         <Grid Padding="5,0" RowSpacing="1" ColumnSpacing="1" BackgroundColor="Black">
 
@@ -64,7 +71,6 @@
 
             <Button Text="=" Grid.Row="5" Grid.Column="1" Grid.ColumnSpan="3" BackgroundColor="{x:Static local:SharedResources.EqualsButtonBkColor}" 
                     TextColor="White" FontSize="36" BorderRadius="0" Clicked="OnCalculate" />
-
             
         </Grid>
     </ContentPage.Content>

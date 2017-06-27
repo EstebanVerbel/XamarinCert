@@ -29,5 +29,10 @@ namespace Calculator
             get { return Color.FromRgb(0xff, 0xa5, 0); }
         }
 
+        public static string FontSize
+        {
+            get { return "36"; }
+        }
+
     }
 }
