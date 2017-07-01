@@ -4,6 +4,13 @@
 	xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
 	x:Class="TipCalculator.StandardTipPage"
 	Title="15%">
+
+  <Page.Resources>
+    <ResourceDictionary>
+      <Color x:Key="backgroudColor">#c0c0c0</Color>
+      <Color x:Key="foregroudColor">#606060</Color>
+    </ResourceDictionary>
+  </Page.Resources>
 	
 	<Grid x:Name ="LayoutRoot" BackgroundColor="Silver" Padding="10">
 
