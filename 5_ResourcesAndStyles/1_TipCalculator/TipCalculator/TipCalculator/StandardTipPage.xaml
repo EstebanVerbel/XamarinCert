@@ -9,7 +9,10 @@
     <ResourceDictionary>
       <Color x:Key="backgroudColor">#c0c0c0</Color>
       <Color x:Key="foregroudColor">#606060</Color>
-      <Style x:Key="infoLabelStyle" TargetType="Label"></Style>
+      <Style x:Key="infoLabelStyle" TargetType="Label">
+        <Setter Property="FontSize" Value="22" />
+        <Setter Property="FontAttributes" Value="Bold" />
+      </Style>
     </ResourceDictionary>
   </Page.Resources>
 
@@ -30,11 +33,11 @@
 
 		<!-- Left column = static labels -->
 		<Label x:Name="billLabel"  Text="Bill"  TextColor="{DynamicResource foregroudColor}" 
-                FontSize="22" FontAttributes="Bold" Grid.Row="0" Grid.Column="0" />
+                Style="{StaticResource infoLabelStyle}" Grid.Row="0" Grid.Column="0" />
 		<Label x:Name="tipLabel"   Text="Tip"   TextColor="{DynamicResource foregroudColor}" 
-                FontSize="22" FontAttributes="Bold" Grid.Row="1" Grid.Column="0" />
+                Style="{StaticResource infoLabelStyle}" Grid.Row="1" Grid.Column="0" />
 		<Label x:Name="totalLabel" Text="Total" TextColor="{DynamicResource foregroudColor}" 
-           FontSize="22" FontAttributes="Bold" Grid.Row="2" Grid.Column="0" />
+                Style="{StaticResource infoLabelStyle}" Grid.Row="2" Grid.Column="0" />
 
 		<!-- Right column = user input and calculated-value output -->
 		<Entry x:Name="billInput"   Placeholder="Enter Amount" Keyboard="Numeric" TextColor="Gray" Grid.Row="0" Grid.Column="1" />
