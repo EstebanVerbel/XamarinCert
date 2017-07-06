@@ -9,13 +9,15 @@
     <ResourceDictionary>
       <Color x:Key="backgroudColor">#c0c0c0</Color>
       <Color x:Key="foregroudColor">#606060</Color>
-      <Style x:Key="infoLabelStyle" TargetType="Label">
-        <Setter Property="FontSize" Value="32" />
-        <Setter Property="FontAttributes" Value="Bold" />
-      </Style>
+      
       <Style x:Key="baseLabelStyle" TargetType="Label">
         <Setter Property="FontSize" Value="22" />
       </Style>
+        
+      <Style x:Key="infoLabelStyle" BasedOn="{StaticResource baseLabelStyle}" TargetType="Label">
+        <Setter Property="FontAttributes" Value="Bold" />
+      </Style>
+    
     </ResourceDictionary>
   </Page.Resources>
 
