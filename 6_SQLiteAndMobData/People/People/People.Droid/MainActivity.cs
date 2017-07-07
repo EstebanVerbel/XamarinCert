@@ -20,7 +20,11 @@ namespace People.Droid
             base.OnCreate(bundle);
 
             global::Xamarin.Forms.Forms.Init(this, bundle);
-            LoadApplication(new App());
+
+            // get file path and pass it to App class
+            string displayText = FileAccessHelper.GetLocalFilePath("people.db3");
+
+            LoadApplication(new App(displayText));
         }
     }
 }
