@@ -23,7 +23,11 @@ namespace People.iOS
         public override bool FinishedLaunching(UIApplication app, NSDictionary options)
         {
             global::Xamarin.Forms.Forms.Init();
-            LoadApplication(new App());
+
+            // get file location and pass it to app class
+            string displayText = FileAccessHelper.GetLocalFilePath("people.db3");
+
+            LoadApplication(new App(displayText));
 
             return base.FinishedLaunching(app, options);
         }
