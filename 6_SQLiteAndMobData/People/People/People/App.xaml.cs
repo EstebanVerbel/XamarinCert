@@ -1,4 +1,5 @@
-﻿using System;
+﻿using People.Assets;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,14 +10,14 @@ namespace People
 {
     public partial class App : Application
     {
-        public App(string displayText)
+        public App(string filename)
         {
             InitializeComponent();
 
-            MainPage = new People.MainPage()
-            {
-                //Text = displayText
-            };
+            // initialize connection with db using sigleton pattern
+            PersonRepository.Initialize(filename);
+
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
