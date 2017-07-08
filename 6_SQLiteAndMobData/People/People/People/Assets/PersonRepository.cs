@@ -1,4 +1,5 @@
 ﻿using People.Models;
+using SQLite;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,15 +11,18 @@ namespace People.Assets
     public sealed class PersonRepository
     {
         // Singleton of the database repository object.
-        private static PersonRepository instance;
+        private static PersonRepository _instance;
+        // database connection
+        private SQLiteConnection _connection;
+        
         public static PersonRepository Instance
         {
             get
             {
-                if (instance == null)
+                if (_instance == null)
                     throw new Exception("You must call Initialize before retrieving the singleton for the PersonRepository.");
 
-                return instance;
+                return _instance;
             }
         }
 
@@ -28,8 +32,10 @@ namespace People.Assets
                 throw new ArgumentNullException(nameof(filename));
 
             // TODO: dispose any existing connection
+            if (_instance != null)
+                _instance._connection.Dispose();
 
-            instance = new PersonRepository(filename);
+            _instance = new PersonRepository(filename);
         }
 
         public string StatusMessage { get; set; }
@@ -37,9 +43,10 @@ namespace People.Assets
         private PersonRepository(string dbPath)
         {
             // TODO: Initialize a new SQLiteConnection
+            _connection = new SQLiteConnection(dbPath);
 
             // TODO: Create the Person table
-
+            _connection.CreateTable<Person>();
         }
 
         public void AddNewPerson(string name)
