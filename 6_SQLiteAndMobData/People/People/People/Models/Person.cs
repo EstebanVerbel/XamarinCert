@@ -3,7 +3,7 @@
 namespace People.Models
 {
     [Table("people")]
-    public class People
+    public class Person
     {
         [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
