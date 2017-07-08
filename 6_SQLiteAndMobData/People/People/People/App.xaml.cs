@@ -15,7 +15,7 @@ namespace People
 
             MainPage = new People.MainPage()
             {
-                Text = displayText
+                //Text = displayText
             };
         }
 
