@@ -59,7 +59,8 @@ namespace People.Assets
                     throw new Exception("Valid name required");
 
                 // TODO: insert a new person into the Person table
-
+                result = _connection.Insert(new Person { Name = name });
+                
                 StatusMessage = string.Format("{0} record(s) added [Name: {1})", result, name);
             }
             catch (Exception ex)
@@ -73,11 +74,11 @@ namespace People.Assets
             try
             {
                 // TODO: return the Person table in the database
-
+                return _connection.Table<Person>();
             }
             catch (Exception ex)
             {
-                StatusMessage = string.Format("Failed to retrieve data. {0}", ex.Message);
+                StatusMessage = string.Format($"Failed to retrieve data. {ex.Message}");
             }
 
             return Enumerable.Empty<Person>();
