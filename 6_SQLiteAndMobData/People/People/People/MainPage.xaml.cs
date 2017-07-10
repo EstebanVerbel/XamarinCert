@@ -11,17 +11,17 @@ namespace People
             InitializeComponent();
         }
 
-        public void OnNewButtonClicked(object sender, EventArgs args)
+        public async void OnNewButtonClicked(object sender, EventArgs args)
         {
             statusMessage.Text = string.Empty;
-            PersonRepository.Instance.AddNewPerson(newPerson.Text);
+            await PersonRepository.Instance.AddNewPersonAsync(newPerson.Text);
             statusMessage.Text = PersonRepository.Instance.StatusMessage;
         }
 
-        public void OnGetButtonClicked(object sender, EventArgs args)
+        public async void OnGetButtonClicked(object sender, EventArgs args)
         {
             statusMessage.Text = string.Empty;
-            var people = PersonRepository.Instance.GetAllPeople();
+            var people = await PersonRepository.Instance.GetAllPeopleAsync();
             peopleList.ItemsSource = people;
         }
 

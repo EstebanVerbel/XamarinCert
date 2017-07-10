@@ -13,7 +13,7 @@ namespace People.Assets
         // Singleton of the database repository object.
         private static PersonRepository _instance;
         // database connection
-        private SQLiteConnection _connection;
+        private SQLiteAsyncConnection _connection;
         
         public static PersonRepository Instance
         {
@@ -33,7 +33,7 @@ namespace People.Assets
 
             // TODO: dispose any existing connection
             if (_instance != null)
-                _instance._connection.Dispose();
+                _instance._connection.GetConnection().Dispose();
 
             _instance = new PersonRepository(filename);
         }
@@ -43,13 +43,13 @@ namespace People.Assets
         private PersonRepository(string dbPath)
         {
             // TODO: Initialize a new SQLiteConnection
-            _connection = new SQLiteConnection(dbPath);
+            _connection = new SQLiteAsyncConnection(dbPath);
 
             // TODO: Create the Person table
-            _connection.CreateTable<Person>();
+            _connection.CreateTableAsync<Person>().Wait();
         }
 
-        public void AddNewPerson(string name)
+        public async Task AddNewPersonAsync(string name)
         {
             int result = 0;
             try
@@ -59,7 +59,7 @@ namespace People.Assets
                     throw new Exception("Valid name required");
 
                 // TODO: insert a new person into the Person table
-                result = _connection.Insert(new Person { Name = name });
+                result = await _connection.InsertAsync(new Person { Name = name });
                 
                 StatusMessage = string.Format("{0} record(s) added [Name: {1})", result, name);
             }
@@ -69,12 +69,12 @@ namespace People.Assets
             }
         }
 
-        public IEnumerable<Person> GetAllPeople()
+        public async Task<IEnumerable<Person>> GetAllPeopleAsync()
         {
             try
             {
                 // TODO: return the Person table in the database
-                return _connection.Table<Person>();
+                return await _connection.Table<Person>().ToListAsync();
             }
             catch (Exception ex)
             {
