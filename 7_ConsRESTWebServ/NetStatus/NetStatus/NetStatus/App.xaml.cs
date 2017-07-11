@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Connectivity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,8 +13,8 @@ namespace NetStatus
         public App()
         {
             InitializeComponent();
-
-            MainPage = new NoNetworkPage();
+            
+            MainPage = CrossConnectivity.Current.IsConnected ? (Page) new NetworkViewPage() : new NoNetworkPage();
         }
 
         protected override void OnStart()
