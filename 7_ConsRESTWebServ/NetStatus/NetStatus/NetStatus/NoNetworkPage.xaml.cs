@@ -1,20 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Reflection.Emit;
 using System.Text;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 
 namespace NetStatus
 {
-    public class NoNetworkPage : ContentView
+    public partial class NoNetworkPage : ContentPage
     {
         public NoNetworkPage()
         {
+            InitializeComponent();
+
             BackgroundColor = Color.FromRgb(0xf0, 0xf0, 0xf0);
 
-            Content = new Label {
+            Content = new Label
+            {
                 Text = "No Network Connection Available",
                 HorizontalOptions = LayoutOptions.Center,
                 VerticalOptions = LayoutOptions.Center,
