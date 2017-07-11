@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Connectivity;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,8 +14,15 @@ namespace NetStatus
         public NetworkViewPage()
         {
             InitializeComponent();
-
-            
         }
+
+        protected override void OnAppearing()
+        {
+            string connectionType = CrossConnectivity.Current.ConnectionTypes.First().ToString();
+
+            // set the label's text
+            ConnectionDetails.Text = connectionType;
+        }
+        
     }
 }
