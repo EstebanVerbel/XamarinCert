@@ -41,6 +41,9 @@
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>
+    <Compile Include="NetworkViewPage.xaml.cs">
+      <DependentUpon>NetworkViewPage.xaml</DependentUpon>
+    </Compile>
     <Compile Include="NoNetworkPage.xaml.cs">
       <DependentUpon>NoNetworkPage.xaml</DependentUpon>
     </Compile>
@@ -84,6 +87,12 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="NoNetworkPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="NetworkViewPage.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
       <SubType>Designer</SubType>
     </EmbeddedResource>
