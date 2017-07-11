@@ -20,6 +20,17 @@ namespace NetStatus
         protected override void OnStart()
         {
             // Handle when your app starts
+            CrossConnectivity.Current.ConnectivityChanged += Current_ConnectivityChanged;
+        }
+
+        private void Current_ConnectivityChanged(object sender, Plugin.Connectivity.Abstractions.ConnectivityChangedEventArgs e)
+        {
+            Type currentPage = MainPage.GetType();
+
+            if (e.IsConnected && currentPage != typeof(NetworkViewPage))
+                MainPage = new NetworkViewPage();
+            else if (!e.IsConnected && currentPage != typeof(NoNetworkPage))
+                MainPage = new NoNetworkPage();
         }
 
         protected override void OnSleep()
