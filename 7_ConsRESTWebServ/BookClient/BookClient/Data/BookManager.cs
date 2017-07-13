@@ -68,10 +68,12 @@ namespace BookClient.Data
             await client.PostAsync($"{Url}{book.ISBN}", content);
         }
 
-        public Task Delete(string isbn)
+        public async Task Delete(string isbn)
         {
             // TODO: use DELETE to delete a book
-            throw new NotImplementedException();
+            HttpClient client = await GetClient();
+
+            await client.DeleteAsync($"{Url}{isbn}");
         }
 
         #endregion
