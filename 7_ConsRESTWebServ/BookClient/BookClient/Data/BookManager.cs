@@ -18,10 +18,17 @@ namespace BookClient.Data
 
         #region -- Public Methods --
 
-        public Task<IEnumerable<Book>> GetAll()
+        public async Task<IEnumerable<Book>> GetAll()
         {
             // TODO: use GET to retrieve books
-            throw new NotImplementedException();
+            HttpClient client = await GetClient();
+
+            // get books from web service
+            string allBooks = await client.GetStringAsync(Url);
+            // deserialize string into list of books
+            List<Book> books = JsonConvert.DeserializeObject<List<Book>>(allBooks);
+
+            return books;
         }
 
         public Task<Book> Add(string title, string author, string genre)
