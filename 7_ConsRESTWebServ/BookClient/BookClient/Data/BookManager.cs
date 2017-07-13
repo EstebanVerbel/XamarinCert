@@ -57,10 +57,15 @@ namespace BookClient.Data
             return JsonConvert.DeserializeObject<Book>(responseString);
         }
 
-        public Task Update(Book book)
+        public async Task Update(Book book)
         {
             // TODO: use PUT to update a book
-            throw new NotImplementedException();
+            HttpClient client = await GetClient();
+
+            string jsonBook = JsonConvert.SerializeObject(book);
+            HttpContent content = new StringContent(jsonBook, Encoding.UTF8, "application/json");
+
+            await client.PostAsync($"{Url}{book.ISBN}", content);
         }
 
         public Task Delete(string isbn)
