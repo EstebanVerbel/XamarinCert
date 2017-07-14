@@ -13,7 +13,7 @@ namespace BookClient
     {
         readonly IList<Book> books = new ObservableCollection<Book>();
         readonly BookManager manager = new BookManager();
-
+        
         public MainPage()
         {
             BindingContext = books;
