@@ -37,13 +37,20 @@ namespace FunFlacts
 
             flagImage.Source = CurrentFlag.GetImageSource();
 
-            adopted.Date = CurrentFlag.DateAdopted;
-            adopted.DateSelected += (s, e) => CurrentFlag.DateAdopted = e.NewDate;
+            BindingContext = CurrentFlag;
 
-            hasShield.IsToggled = CurrentFlag.IncludesShield;
-            hasShield.Toggled += (s, e) => CurrentFlag.IncludesShield = hasShield.IsToggled;
+            //Binding adoptedBinding = new Binding();
+            //adoptedBinding.Source = CurrentFlag;
+            //adoptedBinding.Path = "DateAdopted";
+            //adopted.SetBinding(DatePicker.DateProperty, adoptedBinding);
 
-            description.Text = CurrentFlag.Description;
+            //adopted.Date = CurrentFlag.DateAdopted;
+            //adopted.DateSelected += (s, e) => CurrentFlag.DateAdopted = e.NewDate;
+
+            //hasShield.IsToggled = CurrentFlag.IncludesShield;
+            //hasShield.Toggled += (s, e) => CurrentFlag.IncludesShield = hasShield.IsToggled;
+
+           // description.Text = CurrentFlag.Description;
 		}
 
 		private async void OnShow(object sender, EventArgs e)
