@@ -37,18 +37,18 @@
               HorizontalOptions="Center"
               VerticalOptions="Center"
               Aspect="AspectFit"
-              Source="{Binding ImageUrl, Mode=OneWay, Converter={StaticResource irConverter}}" />
+              Source="{Binding CurrentFlag.ImageUrl, Mode=OneWay, Converter={StaticResource irConverter}}" />
 
       <Picker x:Name="country" SelectedItem="{Binding Country, Mode=TwoWay}" />
 
       <Label Text="Current Design was Adopted on" FontAttributes="Bold" />
-      <DatePicker x:Name="adopted" MinimumDate="01/01/1700" HorizontalOptions="Start" Date="{Binding DateAdopted, Mode=TwoWay}" />
+      <DatePicker x:Name="adopted" MinimumDate="01/01/1700" HorizontalOptions="Start" Date="{Binding CurrentFlag.DateAdopted, Mode=TwoWay}" />
 
       <Label FontAttributes="Bold" />
-      <Switch IsToggled="{Binding IncludesShield, Mode=TwoWay}"  />
+      <Switch IsToggled="{Binding CurrentFlag.IncludesShield, Mode=TwoWay}"  />
 
       <Label Text="Fun Fact" FontAttributes="Bold" />
-      <Label Text="{Binding Description}" />
+      <Label Text="{Binding CurrentFlag.Description}" />
 
       <Label Text="More Information" Margin="0,0,10,0"
               TextColor="Blue" HorizontalOptions="End">

@@ -32,11 +32,7 @@ namespace FunFlacts
 
 		private void InitializeData()
 		{
-            country.ItemsSource = (IList) repository.Countries;
-            country.SelectedItem = CurrentFlag.Country;
-            country.SelectedIndexChanged += (s, e) => CurrentFlag.Country = repository.Countries[country.SelectedIndex];
-            
-            BindingContext = CurrentFlag;
+            BindingContext = new { Countries = repository.Countries, CurrentFlag };
 		}
 
 		private async void OnShow(object sender, EventArgs e)
