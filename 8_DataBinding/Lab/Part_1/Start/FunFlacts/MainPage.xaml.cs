@@ -36,8 +36,6 @@ namespace FunFlacts
             country.SelectedItem = CurrentFlag.Country;
             country.SelectedIndexChanged += (s, e) => CurrentFlag.Country = repository.Countries[country.SelectedIndex];
             
-            flagImage.Source = CurrentFlag.GetImageSource();
-
             BindingContext = CurrentFlag;
 		}
 

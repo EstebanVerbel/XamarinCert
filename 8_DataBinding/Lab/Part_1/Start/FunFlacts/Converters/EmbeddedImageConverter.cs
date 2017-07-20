@@ -19,6 +19,14 @@ namespace FunFlacts.Converters
         /// </summary>
         public Type ResolvingAssemblyType { get; set; }
 
+        /// <summary>
+        /// Takes the Image URL and gets the respective ImageResource
+        /// </summary>
+        /// <param name="value"></param>
+        /// <param name="targetType"></param>
+        /// <param name="parameter"></param>
+        /// <param name="culture"></param>
+        /// <returns></returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             string imageUrl = (value ?? "").ToString();
@@ -31,6 +39,7 @@ namespace FunFlacts.Converters
 
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
+            // not supported
             throw new NotImplementedException();
         }
     }
