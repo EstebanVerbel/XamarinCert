@@ -39,7 +39,7 @@
               Aspect="AspectFit"
               Source="{Binding CurrentFlag.ImageUrl, Mode=OneWay, Converter={StaticResource irConverter}}" />
 
-      <Picker x:Name="country" SelectedItem="{Binding Country, Mode=TwoWay}" />
+      <Picker ItemsSource="{Binding Countries}" SelectedItem="{Binding CurrentFlag.Country, Mode=TwoWay}" />
 
       <Label Text="Current Design was Adopted on" FontAttributes="Bold" />
       <DatePicker x:Name="adopted" MinimumDate="01/01/1700" HorizontalOptions="Start" Date="{Binding CurrentFlag.DateAdopted, Mode=TwoWay}" />
