@@ -38,6 +38,7 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\EmbeddedImageConverter.cs" />
     <Compile Include="Effects\UnderlineEffect.cs" />
     <Compile Include="Extensions\FlagExtensions.cs" />
     <Compile Include="MainPage.xaml.cs">
