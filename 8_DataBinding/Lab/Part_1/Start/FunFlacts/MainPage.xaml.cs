@@ -24,7 +24,8 @@ namespace FunFlacts
 
         public Flag CurrentFlag
         {
-            get {
+            get
+            {
                 return repository.Flags[currentFlag];
             }
         }
@@ -34,7 +35,7 @@ namespace FunFlacts
             country.ItemsSource = (IList) repository.Countries;
             country.SelectedItem = CurrentFlag.Country;
             country.SelectedIndexChanged += (s, e) => CurrentFlag.Country = repository.Countries[country.SelectedIndex];
-
+            
             flagImage.Source = CurrentFlag.GetImageSource();
 
             BindingContext = CurrentFlag;
