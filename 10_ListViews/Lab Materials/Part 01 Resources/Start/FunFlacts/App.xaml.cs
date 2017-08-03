@@ -15,7 +15,9 @@ namespace FunFlacts
             DependencyService.Register<FunFlactsViewModel>();
 
             InitializeComponent();
-            MainPage = new NavigationPage(new FlagDetailsPage());
+            //MainPage = new NavigationPage(new FlagDetailsPage());
+
+            MainPage = new NavigationPage(new AllFlags());
         }
 
         protected override void OnStart()
