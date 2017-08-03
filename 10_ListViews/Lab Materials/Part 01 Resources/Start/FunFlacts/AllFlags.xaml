@@ -4,7 +4,10 @@
              Title="Fun with Flags"
              x:Class="FunFlacts.AllFlags">
   
-  <ListView x:Name="flags">
+  <ListView x:Name="flags" 
+            ItemsSource="{Binding Flags}"
+            SelectedItem="{Binding CurrentFlag, Mode=TwoWay}"
+            ItemTapped="OnItemTapped">
     
   </ListView>
   
