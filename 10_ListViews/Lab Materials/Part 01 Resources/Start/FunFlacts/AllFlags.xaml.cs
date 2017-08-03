@@ -16,6 +16,16 @@ namespace FunFlacts
             InitializeComponent();
 
             flags.ItemsSource = DependencyService.Get<FunFlactsViewModel>().Flags;
+
+            flags.ItemTapped += OnItemTapped;
         }
+
+        async void OnItemTapped(object sender, ItemTappedEventArgs e)
+        {
+            DependencyService.Get<FunFlactsViewModel>().CurrentFlag = (Flag)e.Item;
+            await this.Navigation.PushAsync(new FlagDetailsPage());
+        }
+
+
     }
 }
