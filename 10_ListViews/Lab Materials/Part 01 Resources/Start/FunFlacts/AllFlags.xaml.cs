@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlagData;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -13,6 +14,8 @@ namespace FunFlacts
         public AllFlags()
         {
             InitializeComponent();
+
+            flags.ItemsSource = DependencyService.Get<FunFlactsViewModel>().Flags;
         }
     }
 }
