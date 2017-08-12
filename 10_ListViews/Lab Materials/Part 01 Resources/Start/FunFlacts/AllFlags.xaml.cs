@@ -25,10 +25,14 @@ namespace FunFlacts
         async void OnItemTapped(object sender, ItemTappedEventArgs e)
         {
           //  DependencyService.Get<FunFlactsViewModel>().CurrentFlag = (Flag)e.Item;
-
-
+          
             await this.Navigation.PushAsync(new FlagDetailsPage());
             flags.SelectedItem = null;
+        }
+
+        private void OnEdit(object sender, EventArgs e)
+        {
+
         }
 
 
