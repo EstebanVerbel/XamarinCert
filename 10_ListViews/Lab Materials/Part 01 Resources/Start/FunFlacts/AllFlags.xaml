@@ -4,12 +4,12 @@
              Title="Fun with Flags"
              x:Class="FunFlacts.AllFlags">
   
-  <ToolbarItem Text="Edit" Clicked="OnEdit" Icon="ic_edit.png" IsDestructive="true" />
-  
   <ListView x:Name="flags" 
             ItemsSource="{Binding Flags}"
             SelectedItem="{Binding CurrentFlag, Mode=TwoWay}"
-            ItemTapped="OnItemTapped">  
+            ItemTapped="OnItemTapped">
+    
   </ListView>
+  
 
 </ContentPage>
