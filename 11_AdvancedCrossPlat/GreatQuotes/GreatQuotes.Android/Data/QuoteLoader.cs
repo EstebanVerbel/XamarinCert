@@ -7,7 +7,7 @@ using System.Xml.Linq;
 
 namespace GreatQuotes
 {
-    public class QuoteLoader
+    public class QuoteLoader : IQuoteLoader
 	{
 		const string FileName = "quotes.xml";
 
