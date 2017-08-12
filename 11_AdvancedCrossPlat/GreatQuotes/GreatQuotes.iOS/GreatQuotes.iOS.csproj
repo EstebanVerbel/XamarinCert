@@ -124,11 +124,16 @@
       <DependentUpon>EditQuoteViewController.cs</DependentUpon>
     </Compile>
     <Compile Include="TableViewSource.cs" />
-    <Compile Include="Data\GreatQuote.cs" />
     <Compile Include="Data\QuoteLoader.cs" />
   </ItemGroup>
   <ItemGroup>
     <InterfaceDefinition Include="MainStoryboard.storyboard" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GreatQuotes.Data\GreatQuotes.Data\GreatQuotes.Data.csproj">
+      <Project>{BC0D0BD3-7053-4FFE-A985-0F1E57157E7F}</Project>
+      <Name>GreatQuotes.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\iOS\Xamarin.iOS.CSharp.targets" />
 </Project>

@@ -1,7 +1,7 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace GreatQuotes
+namespace GreatQuotes.Data
 {
     public class GreatQuote : INotifyPropertyChanged
     {

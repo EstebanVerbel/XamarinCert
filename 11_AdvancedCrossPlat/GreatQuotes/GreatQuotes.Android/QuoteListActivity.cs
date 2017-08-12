@@ -2,6 +2,7 @@
 using Android.OS;
 using Android.Content;
 using Android.Views;
+using GreatQuotes.Data;
 
 namespace GreatQuotes
 {

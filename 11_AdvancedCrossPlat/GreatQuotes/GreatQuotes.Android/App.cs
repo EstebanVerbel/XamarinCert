@@ -3,6 +3,7 @@ using System;
 using Android.Runtime;
 using System.Collections.Generic;
 using System.Linq;
+using GreatQuotes.Data;
 
 namespace GreatQuotes
 {
