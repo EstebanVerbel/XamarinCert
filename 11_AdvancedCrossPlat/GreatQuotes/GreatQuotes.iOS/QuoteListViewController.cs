@@ -15,11 +15,12 @@ namespace GreatQuotes
 		void AddNewItem(object sender, EventArgs args)
 		{
 			var quote = new GreatQuote();
-			AppDelegate.Quotes.Insert(0, quote);
+			QuoteManager.Instance.Quotes.Insert(0, quote);
 
-			using (var indexPath = NSIndexPath.FromRowSection(0, 0)) {
-				TableView.InsertRows(new [] { indexPath }, UITableViewRowAnimation.Automatic);
-			}
+            using (var indexPath = NSIndexPath.FromRowSection(0, 0))
+            {
+                TableView.InsertRows(new[] { indexPath }, UITableViewRowAnimation.Automatic);
+            }
 
 			var editQuoteVC = (EditQuoteViewController) this.Storyboard.InstantiateViewController("EditQuote");
 			editQuoteVC.SetQuote(quote);
@@ -37,7 +38,7 @@ namespace GreatQuotes
 			NavigationItem.RightBarButtonItem = addButton;
 
 			TableView.Source = new TableViewSource<GreatQuote>(TableView, "QuoteCell") { 
-				Items = AppDelegate.Quotes,
+				Items = QuoteManager.Instance.Quotes,
 				CanEditRowFunc = delegate { return true; },
 				GetCellFunc = (t,cell) => {
 					cell.TextLabel.Text = t.QuoteText;
@@ -57,7 +58,7 @@ namespace GreatQuotes
 		{
 			if (segue.Identifier == "showDetail") {
 				var indexPath = TableView.IndexPathForSelectedRow;
-				var item = AppDelegate.Quotes[indexPath.Row];
+				var item = QuoteManager.Instance.Quotes[indexPath.Row];
 
 				((QuoteDetailViewController)segue.DestinationViewController).SetQuote(item);
 			}
