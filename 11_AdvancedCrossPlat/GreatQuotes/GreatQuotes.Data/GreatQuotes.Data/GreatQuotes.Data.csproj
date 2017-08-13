@@ -38,8 +38,10 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Assets\ServiceLocator.cs" />
     <Compile Include="GreatQuote.cs" />
     <Compile Include="IQuoteLoader.cs" />
+    <Compile Include="ITextToSpeech.cs" />
     <Compile Include="MainPage.xaml.cs">
       <DependentUpon>MainPage.xaml</DependentUpon>
     </Compile>

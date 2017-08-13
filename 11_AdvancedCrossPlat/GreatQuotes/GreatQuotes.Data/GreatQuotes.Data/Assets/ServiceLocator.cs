@@ -27,8 +27,7 @@ namespace GreatQuotes
 		/// <typeparam name="TService">Service type</typeparam>
 		public void Add<TContract, TService>() where TService : new()
 		{
-			this.registeredServices[typeof(TContract)] = 
-				new Lazy<object>(() => Activator.CreateInstance(typeof(TService)));
+			this.registeredServices[typeof(TContract)] = new Lazy<object>(() => Activator.CreateInstance(typeof(TService)));
 		}
 
 		/// <summary>
@@ -41,7 +40,8 @@ namespace GreatQuotes
 		public T Resolve<T>()
 		{
 			Lazy<object> service;
-			if (registeredServices.TryGetValue(typeof(T), out service)) {
+			if (registeredServices.TryGetValue(typeof(T), out service))
+            {
 				return (T)service.Value;
 			}
 
