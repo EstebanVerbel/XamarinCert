@@ -3,6 +3,7 @@ using Android.OS;
 using Android.Views;
 using Android.Widget;
 using Android.Content;
+using GreatQuotes.Data;
 
 namespace GreatQuotes
 {
@@ -29,7 +30,7 @@ namespace GreatQuotes
 		{
 			base.OnResume();
 
-			var quote = App.Quotes[quoteIndex];
+			var quote = QuoteManager.Instance.Quotes[quoteIndex];
 			quoteText.Text = quote.QuoteText;
 			authorText.Text = quote.Author;
 		}
@@ -56,7 +57,7 @@ namespace GreatQuotes
 					StartActivity(intent);
 					break;
 				case Resource.Id.delete_quote:
-					App.Quotes.RemoveAt(quoteIndex);
+					QuoteManager.Instance.Quotes.RemoveAt(quoteIndex);
 					StartActivity(typeof(QuoteListActivity));
 					Finish();
 					break;

@@ -1,6 +1,7 @@
 ﻿using Android.App;
 using Android.OS;
 using Android.Widget;
+using GreatQuotes.Data;
 
 namespace GreatQuotes
 {
@@ -14,7 +15,7 @@ namespace GreatQuotes
 			base.OnCreate(bundle);
 
 			quoteIndex = Intent.Extras.GetInt("quoteIndex");
-			var quote = App.Quotes[quoteIndex];
+			var quote = QuoteManager.Instance.Quotes[quoteIndex];
 
 			SetContentView(Resource.Layout.EditQuote);
 

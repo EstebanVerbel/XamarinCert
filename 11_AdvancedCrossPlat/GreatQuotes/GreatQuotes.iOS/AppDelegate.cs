@@ -14,14 +14,11 @@ namespace GreatQuotes
 	[Register("AppDelegate")]
 	public class AppDelegate : UIApplicationDelegate
 	{
-		QuoteLoader quoteLoader;
-		public static List<GreatQuote> Quotes { get; private set; }
 		public override UIWindow Window { get; set; }
 
 		public override void FinishedLaunching(UIApplication application)
 		{
-			quoteLoader = new QuoteLoader();
-			Quotes = quoteLoader.Load().ToList();
+            QuoteLoaderFactory.Create = () => new QuoteLoader();
 		}
 
 		public override async void DidEnterBackground(UIApplication application)
@@ -32,7 +29,9 @@ namespace GreatQuotes
 
 			try {
 				await Task.Run(() => {
-					quoteLoader.Save(Quotes);
+					
+                    QuoteManager.Instance.Save();
+
 				}, cts.Token);
 			}
 			catch (Exception ex) {
