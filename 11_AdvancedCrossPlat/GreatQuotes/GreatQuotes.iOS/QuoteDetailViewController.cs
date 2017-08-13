@@ -27,7 +27,8 @@ namespace GreatQuotes
 			// Adjust the font size.
 			float size = 32;
 			Quote.Font = UIFont.FromName("Helvetica-LightOblique", size);
-			while (Quote.SizeThatFits(Quote.Frame.Size).Height >= Quote.Frame.Size.Height-10) {
+			while (Quote.SizeThatFits(Quote.Frame.Size).Height >= Quote.Frame.Size.Height-10)
+            {
 				Quote.Font = UIFont.FromName("Helvetica-LightOblique", --size);
 			}
 		}
@@ -38,6 +39,9 @@ namespace GreatQuotes
 
 			var editButton = new UIBarButtonItem(UIBarButtonSystemItem.Edit, OnEditItem);
 			NavigationItem.RightBarButtonItem = editButton;
+
+            // say quote on text tap
+            Quote.AddGestureRecognizer(new UITapGestureRecognizer(() => QuoteManager.Instance.SayQuote(quote)));
 		}
 
 		void OnEditItem(object sender, EventArgs e)

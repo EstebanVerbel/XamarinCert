@@ -37,7 +37,7 @@ namespace GreatQuotes.Data
                 string text = quote.QuoteText;
                 
                 if (!string.IsNullOrEmpty(quote.Author))
-                    text += $"by {quote.Author}";
+                    text += $" by {quote.Author}";
 
                 textToSpeechService.Speak(text);
             }

@@ -24,9 +24,15 @@ namespace GreatQuotes
 
 			quoteText = FindViewById<TextView>(Resource.Id.quoteText);
 			authorText = FindViewById<TextView>(Resource.Id.authorText);
-		}
 
-		protected override void OnResume()
+            quoteText.Touch += (sender, e) =>
+            {
+                var quoteManager = QuoteManager.Instance;
+                quoteManager.SayQuote(quoteManager.Quotes[quoteIndex]);
+            };
+		}
+        
+        protected override void OnResume()
 		{
 			base.OnResume();
 
