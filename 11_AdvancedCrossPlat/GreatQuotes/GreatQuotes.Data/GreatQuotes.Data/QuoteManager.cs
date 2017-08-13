@@ -25,5 +25,23 @@ namespace GreatQuotes.Data
             _repo.Save(Quotes);
         }
 
+        public void SayQuote(GreatQuote quote)
+        {
+            if (quote == null)
+                throw new ArgumentException("Quote is Null (TextToSpeech)");
+
+            var textToSpeechService = ServiceLocator.Instance.Resolve<ITextToSpeech>();
+
+            if (textToSpeechService != null)
+            {
+                string text = quote.QuoteText;
+                
+                if (!string.IsNullOrEmpty(quote.Author))
+                    text += $"by {quote.Author}";
+
+                textToSpeechService.Speak(text);
+            }
+        }
+
     }
 }
