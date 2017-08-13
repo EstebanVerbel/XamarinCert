@@ -18,6 +18,9 @@ namespace GreatQuotes
 			base.OnCreate();
 
             QuoteLoaderFactory.Create = () => new QuoteLoader();
+
+            //register the text to speech service on ServiceLocator
+            ServiceLocator.Instance.Add<ITextToSpeech, TextToSpeechService>();
 		}
         
 		public static void Save()

@@ -19,7 +19,10 @@ namespace GreatQuotes
 		public override void FinishedLaunching(UIApplication application)
 		{
             QuoteLoaderFactory.Create = () => new QuoteLoader();
-		}
+
+            //register the text to speech service on ServiceLocator
+            ServiceLocator.Instance.Add<ITextToSpeech, TextToSpeechService>();
+        }
 
 		public override async void DidEnterBackground(UIApplication application)
 		{
