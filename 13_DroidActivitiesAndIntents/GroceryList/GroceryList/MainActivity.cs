@@ -28,22 +28,32 @@ namespace GroceryList
 
 		void OnItemsClick(object sender, EventArgs e)
 		{
-			// TODO
+            var intent = new Intent(this, typeof(ItemsActivity));
+            StartActivity(intent);
 		}
 
 		void OnAddItemClick(object sender, EventArgs e)
 		{
-			// TODO
+            var intent = new Intent(this, typeof(AddItemActivity));
+            StartActivityForResult(intent, 100);
 		}
 
 		void OnAboutClick(object sender, EventArgs e)
 		{
-			// TODO
+            StartActivity(typeof(AboutActivity));
 		}
 
 		protected override void OnActivityResult(int requestCode, Result resultCode, Intent data)
 		{
-			// TODO
+            if (resultCode == Result.Ok && requestCode == 100)
+            {
+                string name = data.Extras.GetString("ItemName");
+                int count = data.Extras.GetInt("ItemCount");
+
+                Item item = new Item(name, count);
+
+                Items.Add(item);
+            }
 		}
 	}
 }
